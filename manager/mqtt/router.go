@@ -156,6 +156,12 @@ func NewV16Router(emitter Emitter,
 					},
 				},
 			},
+			"DiagnosticsStatusNotification": {
+				NewRequest:     func() ocpp.Request { return new(ocpp16.DiagnosticsStatusNotificationJson) },
+				RequestSchema:  "ocpp16/DiagnosticsStatusNotification.json",
+				ResponseSchema: "ocpp16/DiagnosticsStatusNotificationResponse.json",
+				Handler:        handlers.CallHandlerFunc(handlers16.DiagnosticsStatusNotificationHandler),
+			},
 		},
 		CallResultRoutes: map[string]handlers.CallResultRoute{
 			"DataTransfer": {
